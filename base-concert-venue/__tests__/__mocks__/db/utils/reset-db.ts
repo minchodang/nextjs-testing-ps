@@ -11,7 +11,7 @@ export const resetDB = async () => {
     return;
   }
   const { fakeShows, fakeBands, fakeUsers, fakeReservations } =
-    await readFakeData;
+    await readFakeData();
   await Promise.all([
     writeJSONToFile(filenames.bands, fakeBands),
     writeJSONToFile(filenames.shows, fakeShows),
