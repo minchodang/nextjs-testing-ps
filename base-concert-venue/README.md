@@ -6,6 +6,7 @@
 
 1. Run `npm install`
 1. Run `cp .env.development.local_template .env.development.local`
+1. Run `cp .env.test.local_template .env.test.local`
 1. Run `cp .env.local_template .env.local`
 1. In _.env.local_:
 
