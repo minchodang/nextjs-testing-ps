@@ -10,3 +10,7 @@ it("displays correct heading when navigating to bands route", () => {
     "exist"
   );
 });
+
+it("resets the db", () => {
+  cy.task("db:reset");
+});
