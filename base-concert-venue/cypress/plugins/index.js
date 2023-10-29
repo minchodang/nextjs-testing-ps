@@ -21,8 +21,11 @@ const { addBand } = require("../../lib/features/bands/queries");
  */
 // eslint-disable-next-line no-unused-vars
 module.exports = (on, config) => {
+  // eslint-disable-next-line no-param-reassign
+  config.env.REVALIDATION_SECRET = process.env.REVALIDATION_SECRET;
   on("task", {
     "db:reset": () => resetDB().then(() => null),
     addBand: (newBand) => addBand(newBand).then(() => null),
   });
+  return config;
 };
