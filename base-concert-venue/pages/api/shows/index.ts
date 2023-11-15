@@ -34,8 +34,6 @@ handler.post(async (req: NextApiRequest, res: NextApiResponse) => {
   const addedShow = await addShow(newShow);
 
   // revalidate shows page for ISR
-  // note: this will change to `res.revalidate` when
-  // this feature is out of beta
   await res.revalidate("/shows");
   return res.json({ show: addedShow, revalidated: true });
 });
