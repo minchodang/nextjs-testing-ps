@@ -19,6 +19,6 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "jest.setup.js", "cypress/e2e/swr/swr-revalidation.cy.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "jest.setup.js"],
   "exclude": ["node_modules"]
 }
