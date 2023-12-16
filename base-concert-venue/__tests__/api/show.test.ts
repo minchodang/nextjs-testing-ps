@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import { testApiHandler } from "next-test-api-route-handler";
 
 import { readFakeData } from "@/__tests__/__mocks__/fakeData";
@@ -31,6 +32,19 @@ test("GET /api/shows/[showId] returns the data for the correct show ID", async (
 
       const { fakeShows } = await readFakeData();
       expect(json).toEqual({ show: fakeShows[0] });
+    },
+  });
+});
+
+test("POST /api/shows returns 401 status for incorrect revalidation secret", async () => {
+  await testApiHandler({
+    handler: showsHandler,
+    paramsPatcher: (params) => {
+      params.queryStringURLParams = { secret: "NOT THE REAL SECRET" };
+    },
+    test: async ({ fetch }) => {
+      const res = await fetch({ method: "POST" });
+      expect(res.status).toEqual(401);
     },
   });
 });
